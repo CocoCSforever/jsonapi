@@ -1,1 +1,3 @@
+- Updated README.md formatting
+- Created setup.py for packaging and distribution, Organized project into  and  directories, Created source distribution and wheel, Updated README.md
 - Added .gitignore
