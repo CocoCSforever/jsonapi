@@ -6,8 +6,8 @@ This Python package provides a customized encoder and decoder for specific data 
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Encode the data](#Encode the data)
-  - [Decode the JSON data](#Decode the JSON data)
+  - Encode the data
+  - Decode the JSON data
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -22,32 +22,41 @@ pip install jsonapi
 
 
 ## Usage
-
+```bash
 from jsonapi import YEncoder, YDecoder, dumps, loads
+```
 
-# Create an object to encode
+#### Create an object to encode
+```bash
 data = {
     'complex_number': complex(1, 2),
     'range_object': range(1, 10, 2)
 }
+```
 
-# Encode the data
+
+#### Encode the data
+```bash
 encoded_data = YEncoder().encode(data)
 print("Encoded Data:", encoded_data)
-
+```
+```bash
 encoded_data = dumps(data, cls=YEncoder)
 print("Encoded Data:", encoded_data)
-
-# Sample JSON data (encoded using YEncoder)
+```
+#### Sample JSON data (encoded using YEncoder)
+```bash
 json_data = '{"complex_number": {"real": 1.0, "imag": 2.0, "__extended_json_type__": "complex"}, "range_object": {"start": 1, "stop": 10, "step": 2, "__extended_json_type__": "range"}}'
-
-# Decode the JSON data
+```
+#### Decode the JSON data
+```bash
 decoded_data = YDecoder().decode(json_data)
 print("Decoded Data:", decoded_data)
-
+```
+```bash
 decoded_data = loads(json_data, cls=YDecoder)
 print("Decoded Data:", decoded_data)
-
+```
 ## Contributing
 Contributions are welcome!
 
