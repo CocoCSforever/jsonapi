@@ -6,8 +6,11 @@ This Python package provides a customized encoder and decoder for specific data 
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - Encode the data
-  - Decode the JSON data
+  - [Two ways to import package](#two-ways-to-import-package)
+  - [Create an object to encode](#create-an-object-to-encode)
+  - [Encode the data](#encode-the-data)
+  - [Sample JSON data](#sample-json-data-encoded-using-yencoder)
+  - [Decode the JSON data](#decode-the-json-data)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -17,13 +20,18 @@ This Python package provides a customized encoder and decoder for specific data 
 You can install the package using `pip`:
 
 ```bash
-pip install jsonapi
+pip install -e .
 ```
 
-
 ## Usage
+#### Two ways to import package
+1. import classes and functions from the package so you can call them directly
 ```bash
 from jsonapi import YEncoder, YDecoder, dumps, loads
+```
+2. import jsonapi package as js
+```bash
+from jsonapi import jsonapi as js
 ```
 
 #### Create an object to encode
@@ -34,8 +42,8 @@ data = {
 }
 ```
 
-
 #### Encode the data
+- 1
 ```bash
 encoded_data = YEncoder().encode(data)
 print("Encoded Data:", encoded_data)
@@ -44,17 +52,38 @@ print("Encoded Data:", encoded_data)
 encoded_data = dumps(data, cls=YEncoder)
 print("Encoded Data:", encoded_data)
 ```
+- 2
+```bash
+encoded_data = js.YEncoder().encode(data)
+print("Encoded Data:", encoded_data)
+```
+```bash
+encoded_data = js.dumps(data, cls=YEncoder)
+print("Encoded Data:", encoded_data)
+```
+
 #### Sample JSON data (encoded using YEncoder)
 ```bash
 json_data = '{"complex_number": {"real": 1.0, "imag": 2.0, "__extended_json_type__": "complex"}, "range_object": {"start": 1, "stop": 10, "step": 2, "__extended_json_type__": "range"}}'
 ```
+
 #### Decode the JSON data
+- 1
 ```bash
 decoded_data = YDecoder().decode(json_data)
 print("Decoded Data:", decoded_data)
 ```
 ```bash
 decoded_data = loads(json_data, cls=YDecoder)
+print("Decoded Data:", decoded_data)
+```
+- 2
+```bash
+decoded_data = js.YDecoder().decode(json_data)
+print("Decoded Data:", decoded_data)
+```
+```bash
+decoded_data = js.loads(json_data, cls=YDecoder)
 print("Decoded Data:", decoded_data)
 ```
 ## Contributing

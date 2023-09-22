@@ -1,3 +1,5 @@
+- Updated setup.py, CHANGELOG.md, README.md to optimize installation experience. Modified test_json.py to test built-in json package
+- Updated CHANGELOG.md
 - Updated README.md formatting
 - Created setup.py for packaging and distribution, Organized project into  and  directories, Created source distribution and wheel, Updated README.md
 - Added .gitignore
